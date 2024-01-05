@@ -7,6 +7,7 @@ import FormWrapper from "../FormWrapper";
 import Input from "../components/Input/FormInput";
 import useForm from "../hooks/useForm";
 import toast from "react-hot-toast";
+import { checkError } from "../helpers/validate";
 
 const validationSchema = {
   email: {
@@ -42,11 +43,11 @@ const LoginForm = () => {
   );
 
   const handleLogin = async (e: any) => {
+    if (checkError(errors)) return;
+
     setLoading(true);
     e.preventDefault(e);
-
     const result = await loginApi(formValues);
-
     if (result?.success) {
       toast.success(result?.message);
       const loginData = result?.data?.user;

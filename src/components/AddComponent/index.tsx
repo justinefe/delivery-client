@@ -5,6 +5,7 @@ import { setPost } from "../../store/postAction";
 import toast from "react-hot-toast";
 import useForm from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
+import { checkError } from "../../helpers/validate";
 
 const validationSchema = {
   title: {
@@ -39,7 +40,7 @@ const AddComponennt = ({ edit, title, description, id }: Props) => {
   );
   const handleAddItem = async (e: any) => {
     e.preventDefault();
-
+    if (checkError(errors)) return;
     setLoading(true);
     let data = {
       title: formValues.title,

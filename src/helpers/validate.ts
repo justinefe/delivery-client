@@ -135,8 +135,4 @@ export const validate = (name, value, setError) => {
   return false;
 };
 
-export const checkError = (obj) => {
-  return Object.values(obj)
-    .flat()
-    .filter((Err) => Err !== "");
-};
+export const checkError = (errors : any) => Object.values(errors).some((err:any) => err.length > 0)

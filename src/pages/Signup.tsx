@@ -6,6 +6,7 @@ import FormWrapper from "../FormWrapper";
 import Input from "../components/Input/FormInput";
 import useForm from "../hooks/useForm";
 import toast from "react-hot-toast";
+import { checkError } from "../helpers/validate";
 import { createAccountApi, setUser } from "../store/userAction";
 
 const validationSchema = {
@@ -56,9 +57,10 @@ const SignUpForm = () => {
   );
 
   const handleLogin = async (e: any) => {
+    if (checkError(errors)) return;
+
     setLoading(true);
     e.preventDefault(e);
-
     const result = await createAccountApi(formValues);
     if (result?.success) {
       toast.success(result?.message);
