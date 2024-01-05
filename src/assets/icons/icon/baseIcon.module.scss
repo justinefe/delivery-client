@@ -1,0 +1,100 @@
+.shapeCss {
+  display: inline-block;
+  overflow: hidden;
+  flex-shrink: 0;
+  vertical-align: middle;
+  background-color: var(---svg-background);
+  // path {
+  //   stroke: var(--pathColor);
+  // }
+
+  &[data-active] {
+    stroke: white;
+  }
+  &[data-size='nano'] {
+    --icon-circle-size: 24px;
+  }
+  &[data-size='xxs'] {
+    --icon-circle-size: 32px;
+  }
+  &[data-size='xs'] {
+    --icon-circle-size: 40px;
+  }
+  &[data-size='sm'] {
+    --icon-circle-size: 64px;
+  }
+  &[data-size='md'] {
+    --icon-circle-size: 88px;
+  }
+  &[data-size='lg'] {
+    --icon-circle-size: 112px;
+  }
+
+  [data-inline-text] & {
+    margin-top: calc(-0.15 * var(--icon-circle-size));
+  }
+
+  &[data-background] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25%;
+    width: var(--icon-circle-size);
+    height: var(--icon-circle-size);
+  }
+  &:hover {
+    // background-color: var(--ascent);
+    // path {
+    //   stroke: white;
+    // }
+  }
+  &[data-disabled='true'] {
+    cursor: not-allowed;
+    &[emphasis='medium'] {
+      border: 1px solid var(--disabledText);
+    }
+
+    &[emphasis='high'] {
+      background-color: var(----disable-background);
+    }
+  }
+}
+
+.svgCss {
+  display: block;
+}
+
+.spinningCss {
+  animation: rotate-spinner 1s linear infinite;
+  @keyframes rotate-spinner {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.directionCss {
+  transition: transform 0.3s;
+  &[data-direction='right'] {
+    transform: rotate(180deg);
+  }
+  &[data-direction='up'] {
+    transform: rotate(-90deg);
+  }
+  &[data-direction='left'] {
+    transform: rotate(0deg);
+  }
+  &[data-direction='down'] {
+    transform: rotate(90deg);
+  }
+}
+
+.reflectCss {
+  transition: transform 0.3s;
+  &[data-reflect='horizontal'] {
+    transform: scaleX(-1);
+  }
+  &[data-reflect='vertical'] {
+    transform: scaleY(-1);
+  }
+}
