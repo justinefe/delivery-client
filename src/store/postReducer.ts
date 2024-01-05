@@ -2,7 +2,7 @@ export const initialState = {
     posts: []
   };
   
-  const user = (state = initialState, action) => {
+  const user = (state = initialState, action:any) => {
     switch (action.type) {
       case 'setUpPosts':
         return {

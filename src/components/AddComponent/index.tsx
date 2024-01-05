@@ -25,7 +25,12 @@ const validationSchema = {
   },
 };
 
-type Props = { edit?: boolean; title: string; description: string; id: string };
+type Props = {
+  edit?: boolean;
+  title?: string;
+  description?: string;
+  id?: string;
+};
 
 const AddComponennt = ({ edit, title, description, id }: Props) => {
   const [loading, setLoading] = useState(false);
@@ -42,11 +47,13 @@ const AddComponennt = ({ edit, title, description, id }: Props) => {
     e.preventDefault();
     if (checkError(errors)) return;
     setLoading(true);
-    let data = {
-      title: formValues.title,
-      desc: formValues.description,
-    };
-    data = id ? { ...data, id } : data;
+
+    const data = id
+      ? { title: formValues.title, desc: formValues.description, id: id }
+      : {
+          title: formValues.title,
+          desc: formValues.description,
+        };
     try {
       const result = await axiosInstance({
         url: `${import.meta.env.VITE_APP_BASE_URL}/post/${
@@ -60,10 +67,11 @@ const AddComponennt = ({ edit, title, description, id }: Props) => {
         toast.success(
           edit ? "Post edited succesful" : "Post created succesful"
         );
-        dispatch(setPost(result?.data?.data?.posts));
+        const m: any = setPost(result?.data?.data?.posts);
+        dispatch(m);
         navigate("/");
       }
-    } catch (err) {
+    } catch (err: any) {
       toast.error(err?.response?.data?.error || err?.message);
       setLoading(false);
     }

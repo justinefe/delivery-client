@@ -1,4 +1,4 @@
-export const setPost  = response => async dispatch => {
+export const setPost  =( response :any)=> async (dispatch:any) => {
     try {
       dispatch({
         type: 'setUpPosts',

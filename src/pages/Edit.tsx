@@ -6,7 +6,7 @@ import AddComponennt from "../components/AddComponent";
 
 type Props = {};
 
-const Edit = (props: Props) => {
+const Edit = ({}: Props) => {
   let location = useLocation();
   const navigate = useNavigate();
   const { user } = useSelector(({ auth }) => auth) || {};

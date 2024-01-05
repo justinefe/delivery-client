@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface Props {
   className: string;
   src?: string;
@@ -19,9 +17,9 @@ const DivImage = ({
     ? {
         style: {
           backgroundImage: `url(${src})`,
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundBlendMode: 'multiply',
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundBlendMode: "multiply",
           // ...(style || {}),
           // no-repeat
         },

@@ -32,7 +32,7 @@ const validationSchema = {
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch: any = useDispatch();
   const navigate = useNavigate();
   const { formValues, handleChange, errors, handleBlur }: any = useForm(
     {

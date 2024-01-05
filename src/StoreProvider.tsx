@@ -1,14 +1,12 @@
-'use client'
-import { useRef } from 'react'
-import { Provider } from 'react-redux'
-import { makeStore } from './store/store'
+import { useRef } from "react";
+import { Provider } from "react-redux";
+import { makeStore } from "./store/store";
 
-export default function StoreProvider({ children }:any) {
-  const storeRef = useRef()
+export default function StoreProvider({ children }: any) {
+  const storeRef: any = useRef();
   if (!storeRef.current) {
     // Create the store instance the first time this renders
-    storeRef.current = makeStore()
-
+    storeRef.current = makeStore();
   }
-  return <Provider store={storeRef.current}>{children}</Provider>
+  return <Provider store={storeRef.current}>{children}</Provider>;
 }

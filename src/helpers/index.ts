@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import moment from 'moment';
 
 
 let axiosInstance =  axios.create({
@@ -28,7 +27,3 @@ export const getYear = () => {
   const date = new Date();
   return date.getFullYear();
 };
-
-export const SearchDate = date => moment(date).format('MM-DD-YYYY');
-export const currentDate = date => moment(date).format('YYYY-MM-DD');
-export const createdDate = date => moment(date).format('LLL');

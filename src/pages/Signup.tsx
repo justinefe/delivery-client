@@ -45,7 +45,7 @@ const SignUpForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
+  const dispatch: any = useDispatch();
   const { formValues, handleChange, errors, handleBlur }: any = useForm(
     {
       email: "",

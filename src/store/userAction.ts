@@ -2,21 +2,21 @@ import Cookies from 'js-cookie';
 import axiosInstance from '../helpers';
 // import { BASE_URL } from 'controllers/config';
 // import axiosCall from 'helpers/axiosCall';
-export const loading = () => async dispatch => {
+export const loading = () => async (dispatch:any) => {
   dispatch({
     type: 'AUTH_LOADING',
     payload: true,
   });
 };
 
-export const doneloading = () => async dispatch => {
+export const doneloading = () => async (dispatch:any) => {
   dispatch({
     type: 'AUTH_LOADING',
     payload: false,
   });
 };
 
-export const setUser = response => async dispatch => {
+export const setUser = (response:any)=> async (dispatch:any) => {
   try {
     dispatch({
       type: 'setUpUser',
@@ -29,7 +29,7 @@ export const setUser = response => async dispatch => {
   return response;
 };
 
-export const log_out = () => async dispatch => {
+export const log_out = () => async (dispatch:any) => {
   //document.cookie = 'accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC';
   Cookies.remove('accessToken');
  // axiosInstance.defaults.headers.Authorization = null;
@@ -88,7 +88,6 @@ export const loginApi = async ({
 
 export const createAccountApi = async (
     { email, firstName, lastName, password}: IUserAccount,
-    path: string
   ) => {
     try {
       const result = await axiosInstance({

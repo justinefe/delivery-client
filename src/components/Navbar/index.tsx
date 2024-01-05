@@ -1,16 +1,18 @@
 import { useRef } from "react";
 import { log_out } from "../../store/userAction";
 import { useDispatch, useSelector } from "react-redux";
+
 import { NavLink } from "react-router-dom";
 import { capitalizeFirstLetter } from "../../helpers";
 
 type Props = {};
 
-const Navbar = (props: Props) => {
-  const menuRef = useRef(null);
-  const dispatch = useDispatch();
+const Navbar = ({}: Props) => {
+  const menuRef = useRef<HTMLUListElement>(null);
+  const dispatch: any = useDispatch();
+
   const handMenu = () => {
-    menuRef.current?.classList?.toggle("hidden");
+    menuRef?.current!.classList.toggle("hidden");
   };
   const { user } = useSelector(({ auth }) => auth) || {};
 

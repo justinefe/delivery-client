@@ -11,10 +11,11 @@ import HomePage from "./pages/Homepage";
 import "./styles/index.scss";
 import Layout from "./Layout";
 import Edit from "./pages/Edit";
+import { AxiosResponse } from "axios";
 
 function App() {
   let token = Cookies.get("accessToken");
-  const dispatch = useDispatch();
+  const dispatch: any = useDispatch();
 
   useEffect(() => {
     if (token) {
@@ -22,7 +23,7 @@ function App() {
     }
   }, []);
   const makeCall = async () => {
-    const result = await axiosInstance({
+    const result: AxiosResponse<any, any> = await axiosInstance({
       url: `${import.meta.env.VITE_APP_BASE_URL}/user`,
       method: "GET",
     });

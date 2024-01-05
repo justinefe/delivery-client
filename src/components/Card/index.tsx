@@ -2,54 +2,29 @@ import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
 interface CardProps {
-  Icon?: any;
   title: string;
   description: string;
-  background?: string;
-  handleDelete: any;
-  className?: string;
-  textColor?: string;
-  maintextClassName?: string;
-  subtextClassName?: string;
-  iconClassName?: string;
-  cards: any;
   id: number | string;
   owner: string;
   accessPerm: boolean | undefined;
+  handleDelete: any;
 }
 
 const Card: FC<CardProps> = ({
-  Icon,
   title,
   description,
   accessPerm,
-  background,
   id,
-  className,
-  textColor,
-  maintextClassName,
-  subtextClassName,
-  iconClassName,
-  owner,
   handleDelete,
+  owner,
 }) => {
   return (
     <div
-      style={{ background }}
-      className={`rounded-br20 mt-4 bg-white relative shadow-cardShadow flex flex-col grow pt-3 pb-[25px] px-7 ${
-        className || ""
-      }`}
+      className={`rounded-br20 bg-white shadow-cardShadow flex flex-col grow  py-[15px] px-7 `}
     >
-      <div className={`flex justify-end ${iconClassName || ""}`}>{Icon}</div>
       <div className="flex flex-col">
-        <div className="flex justify-between items-center">
-          <span
-            className={`font-montserrat ${
-              textColor || "text-dark-grey-800"
-            }  font-medium ${
-              maintextClassName || "text-[44px] leading-[54px] mt-6"
-            }}`}
-          >
+        <div className="flex justify-between py-4 w-full">
+          <span className="font-montserrat text-[44px] leading-[54px] text-dark-grey-800 font-medium break-all">
             {title}
           </span>
           {accessPerm ? (
@@ -158,18 +133,15 @@ const Card: FC<CardProps> = ({
           )}
         </div>
         <span
-          className={` ${textColor || "text-dark-grey-100"} font-medium ${
-            subtextClassName || "mt-2"
-          }`}
+          className={` "text-dark-grey-100"} font-medium  "mt-2"
+          `}
         >
           {description}
         </span>
         <span
-          className={`font-montserrat ${
-            textColor || "text-dark-grey-800"
-          }  font-medium ${
-            maintextClassName || "text-[px] leading-[54px] mt-6"
-          }}`}
+          className={`font-montserrat text-dark-grey-800"
+         font-medium text-[px] leading-[54px] mt-6"
+          `}
         >
           ~ {owner}
         </span>

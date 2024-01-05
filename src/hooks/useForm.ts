@@ -1,12 +1,6 @@
-/* eslint-disable no-restricted-syntax */
-
-'use client';
-
 import { useState } from 'react';
 
-interface IFormInput {
-  [key: string]: string;
-}
+
 
 interface IValidationObj {
   [key: string]: {
@@ -46,7 +40,7 @@ const useForm = (
     }
   };
 
-  const handleChange = ({ target: { name, value, ...rest } }: any) => {
+  const handleChange = ({ target: { name, value, } }: any) => {
     setFormValues((prev: any) => ({
       ...prev,
       [name]: value,

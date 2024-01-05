@@ -1,4 +1,4 @@
-const pattern = {
+const pattern:any = {
   email: [
     {
       message: "Enter a valid email",
@@ -118,15 +118,15 @@ const pattern = {
   ],
 };
 
-export const validate = (name, value, setError) => {
-  const errorMsg = pattern[name].reduce((acc, validator) => {
+export const validate = (name:any, value:any, setError:any) => {
+  const errorMsg = pattern[name].reduce((acc:any, validator:any) => {
     if (!validator.pattern.test(value)) {
       acc.push(validator.message);
     }
     return acc;
   }, []);
   if (errorMsg.length) {
-    setError((prevState) => ({
+    setError((prevState:any) => ({
       ...prevState,
       [name]: errorMsg,
     }));
